@@ -11,7 +11,8 @@ const createEmployee = async (req, res) => {
       email: req.body.email,
       salary: req.body.salary,
     });
-    console.log("new emp: ", employee);
+
+    console.log("All employees: ", await Employee.find());
     res.status(201).json({
       newEmployee: employee,
     });
