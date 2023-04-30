@@ -12,7 +12,7 @@ const filterQueries = async (req, res) => {
     const data = await Employee.find().sort({ salary: 1 });
     let pagination = (page || 1) * (limit || 5);
     pagination = data.slice(0, pagination);
-    res.status(200).json({ pagination });
+    res.status(200).send(pagination).end();
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal Server Error" });
